@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Scoreboard</title>
+
+  <!-- <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style> -->
+
+</head>
+
+<body class="container-fluid img-bg">
+
+  <header class="row text-end m-3">
+    <div class="col">
+      <button class="btn btn-danger m-2" onclick="resetHomeScore()">Reset HOME Score</button>
+      <button class="btn btn-danger m-2" onclick="resetAwayScore()">Reset AWAY Score</button>
+      <button class="btn btn-danger m-2 hidden" onclick="resetGuestScore()" id="reset-guest-btn"> Reset GUEST
+        Score</button>
+      <button class="btn btn-danger m-2" onclick="resetScores()">Reset ALL Scores</button>
+    </div>
+  </header>
+
+  <main class="row justify-content-center">
+    <div class="col-8 scoreboard-card border border-info text-light d-flex flex-column justify-content-center">
+      <div class="row justify-content-evenly">
+        <div class="col-4 text-center d-flex flex-column justify-content-center">
+          <h1 class="team-font">HOME</h1>
+          <p class="border border-info score-font" id="home-score"></p>
+        </div>
+        <div class="col-4 text-center">
+          <h1 class="team-font">AWAY</h1>
+          <p class="border border-info score-font" id="away-score"></p>
+        </div>
+
+        <div class="col-4 text-center hidden" id="guest-player">
+          <h1 class="team-font">GUEST</h1>
+          <p class="border border-info score-font" id="guest-score"></p>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="row justify-content-evenly">
+      <div class="col-3 d-flex flex-column align-items-center">
+        <button class="btn btn-primary m-2" onclick="homeTeamScore()">Home Team +1</button>
+        <button class="btn btn-primary m-2" onclick="homeTeamScoreThree()">Home Team +3</button>
+        <button class="btn btn-danger m-2" onclick="homeTeamPenalty()">Home Penalty -1</button>
+      </div>
+      <div class="col-3 d-flex flex-column align-items-center">
+        <button class="btn btn-primary m-2" onclick="awayTeamScore()">Away Team +1</button>
+        <button class="btn btn-primary m-2" onclick="awayTeamScoreThree()">Away Team +3</button>
+        <button class="btn btn-danger m-2" onclick="awayTeamPenalty()">Away Penalty -1</button>
+      </div>
+
+      <div class="col-3 hidden d-flex flex-column align-items-center" id="guest-buttons">
+        <button class="btn btn-primary m-2" onclick="guestTeamScore()">Guest Team +1</button>
+        <button class="btn btn-primary m-2" onclick="guestTeamScoreThree()">Guest Team +3</button>
+        <button class="btn btn-danger m-2" onclick="guestTeamPenalty()">Guest Penalty -1</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="my-footer row text-light w-100">
+    <div class="col-6 d-flex">
+      <p>Total Points Scored Since Last Refresh: &nbsp;</p>
+      <p id="total-points"></p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <button class="btn btn-primary mb-2" onclick="addPlayer()" id="add-player-btn">Add a Player</button>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+
+</html>
